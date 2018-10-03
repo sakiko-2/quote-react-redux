@@ -30,7 +30,7 @@ class App extends Component {
   }
 
   render() {
-    const quote = this.state.dataSource.quote;
+    const quote = this.state.loaded ? this.state.dataSource.quote : 'Loading ...';
 
     return (
       <div className='App'>
