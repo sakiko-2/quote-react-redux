@@ -34,9 +34,16 @@ class App extends Component {
 
     return (
       <div className='App'>
-        <header className='App-header'>
-          <p>{quote}</p>
-        </header>
+        <div className='container'>
+          <header className='App-header'>
+            <h1>Quote Of The Day</h1>
+          </header>
+          <div className='bg-white round-corner'>
+            <div className='card-body'>
+              {quote}
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
