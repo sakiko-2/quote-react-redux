@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   background-color: #000;
+  background-image: url('./images/pebbles.jpg');
   background-size: cover;
   min-height: 100vh;
   display: flex;
