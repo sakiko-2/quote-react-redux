@@ -36,6 +36,19 @@ class App extends Component {
       .catch((error) => console.log('Error:', error));
   }
 
+  renderQuote() {
+    if (!this.state.loaded) {
+      return <FontAwesomeIcon icon='spinner' pulse size='2x' color='lightgrey' />;
+    }
+
+    return(
+      <div className='blockquote mt-3'>
+        <div>{this.state.dataSource.quote}</div>
+        <div className='blockquote-footer'>{this.state.dataSource.thoughtAuthor.name}</div>
+      </div>
+    );
+  }
+
   render() {
     const quote = this.state.loaded ?
       this.state.dataSource.quote :
@@ -49,7 +62,7 @@ class App extends Component {
           </header>
           <div className='bg-white round-corner'>
             <div className='card-body'>
-              {quote}
+              {this.renderQuote()}
             </div>
           </div>
         </div>
