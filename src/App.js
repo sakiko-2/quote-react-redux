@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 
-const REQUEST_URL = 'https://www.forbes.com/forbesapi/thought/uri.json?enrich=true&query=1&relatedlimit=1';
 const PROXY_URL = 'https://cors-anywhere.herokuapp.com/';
 
 class App extends Component {
@@ -18,6 +17,9 @@ class App extends Component {
   }
 
   fetchData() {
+    const num = Math.floor((Math.random() * 1000) + 1);
+    const REQUEST_URL = `https://www.forbes.com/forbesapi/thought/uri.json?enrich=true&query=${num}&relatedlimit=1`;
+
     fetch(PROXY_URL + REQUEST_URL)
       .then((response) => response.json())
       .then((responseData) => {
