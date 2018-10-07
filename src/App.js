@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faRedo, faSpinner } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faSpinner);
+library.add(faRedo, faSpinner);
 
 const PROXY_URL = 'https://cors-anywhere.herokuapp.com/';
 
@@ -15,6 +15,7 @@ class App extends Component {
       dataSource: [],
       loaded: false
     }
+    this.handleClickReload = this.handleClickReload.bind(this);
   }
 
   componentDidMount() {
@@ -34,6 +35,11 @@ class App extends Component {
         });
       })
       .catch((error) => console.log('Error:', error));
+  }
+
+  handleClickReload() {
+    this.setState({ loaded: false });
+    this.fetchData();
   }
 
   renderQuote() {
@@ -64,6 +70,14 @@ class App extends Component {
             <div className='card-body'>
               {this.renderQuote()}
             </div>
+          </div>
+          <div>
+            <button
+              className='btn btn-dark m-1 round-corner'
+              onClick={this.handleClickReload}
+            >
+              <FontAwesomeIcon icon='redo' />
+            </button>
           </div>
         </div>
       </div>
