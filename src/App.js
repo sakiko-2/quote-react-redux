@@ -44,11 +44,15 @@ class App extends Component {
 
   renderQuote() {
     if (!this.state.loaded) {
-      return <FontAwesomeIcon icon='spinner' pulse size='2x' color='lightgrey' />;
+      return (
+        <div className='m-3'>
+          <FontAwesomeIcon icon='spinner' pulse size='2x' color='lightgrey' />
+        </div>
+      );
     }
 
-    return(
-      <div className='blockquote mt-3'>
+    return (
+      <div className='blockquote m-3'>
         <div>{this.state.dataSource.quote}</div>
         <div className='blockquote-footer'>{this.state.dataSource.thoughtAuthor.name}</div>
       </div>
