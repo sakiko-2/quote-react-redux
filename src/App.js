@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faSpinner);
 
 const PROXY_URL = 'https://cors-anywhere.herokuapp.com/';
 
@@ -32,7 +37,9 @@ class App extends Component {
   }
 
   render() {
-    const quote = this.state.loaded ? this.state.dataSource.quote : 'Loading ...';
+    const quote = this.state.loaded ?
+        this.state.dataSource.quote
+      : <FontAwesomeIcon icon='spinner' pulse size='2x' color='lightgrey' />;
 
     return (
       <div className='App'>
