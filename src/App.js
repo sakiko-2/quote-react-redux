@@ -38,8 +38,8 @@ class App extends Component {
 
   render() {
     const quote = this.state.loaded ?
-        this.state.dataSource.quote
-      : <FontAwesomeIcon icon='spinner' pulse size='2x' color='lightgrey' />;
+      this.state.dataSource.quote :
+      <FontAwesomeIcon icon='spinner' pulse size='2x' color='lightgrey' />;
 
     return (
       <div className='App'>
