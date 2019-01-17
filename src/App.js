@@ -4,9 +4,9 @@ import { fetchData } from './actions/index';
 import './App.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faRedo, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faRedo, faSpinner, faQuoteLeft } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faRedo, faSpinner);
+library.add(faRedo, faSpinner, faQuoteLeft);
 
 
 class App extends Component {
@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   renderQuote() {
-    if (this.props.loading) {
+    if (this.props.loading || !this.props.data) {
       return (
         <div className='m-3'>
           <FontAwesomeIcon icon='spinner' pulse size='2x' color='lightgrey' />
@@ -28,9 +28,20 @@ class App extends Component {
     }
 
     return (
-      <div className='blockquote m-3'>
-        <div>{this.props.data.quote}</div>
-        <div className='blockquote-footer'>{this.props.data.thoughtAuthor.name}</div>
+      <div className='blockquote mx-4 my-3'>
+        <div className='text-left'>
+          <div><FontAwesomeIcon icon='quote-left' /></div>
+          {this.props.data.quote}
+        </div>
+        <div className='d-flex justify-content-between mt-4'>
+          <button
+            className='btn btn-dark m-1 rounded-circle text-left'
+            onClick={this.handleClickReload.bind(this)}
+          >
+            <FontAwesomeIcon icon='redo' />
+          </button>
+          <div className='blockquote-footer mt-2 text-right'>{this.props.data.thoughtAuthor.name}</div>
+        </div>
       </div>
     );
   }
@@ -42,18 +53,12 @@ class App extends Component {
           <header className='App-header'>
             <h1>Quote Of The Day</h1>
           </header>
-          <div className='bg-white round-corner'>
-            <div className='card-body'>
-              {this.renderQuote()}
+          <div className='d-flex flex-row justify-content-center'>
+            <div className='bg-white card'>
+              <div className='card-body'>
+                {this.renderQuote()}
+              </div>
             </div>
-          </div>
-          <div>
-            <button
-              className='btn btn-dark m-1 round-corner'
-              onClick={this.handleClickReload.bind(this)}
-            >
-              <FontAwesomeIcon icon='redo' />
-            </button>
           </div>
         </div>
       </div>

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Open+Sans');
+
 .App {
   text-align: center;
   background-color: #000;
@@ -10,8 +12,25 @@
 
 .App-header {
   color: white;
+  font-family: 'Lato', sans-serif;
 }
 
-.round-corner {
-  border-radius: .5rem;
+.blockquote {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.card {
+  max-width: 50rem;
+  border-radius: 1rem;
+}
+
+.fa-quote-left {
+  color: lightgrey;
+  margin-left: -1rem;
+}
+
+@media (min-width: 576px) {
+  .App-header h1 {
+    margin-bottom: 2rem;
+  }
 }
