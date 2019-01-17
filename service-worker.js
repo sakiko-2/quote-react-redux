@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "%20//sakiko-2.github.io/quote-react-redux/precache-manifest.c7809e55aedd2c674a34b02fcfcb0944.js"
+  "/quote-react-redux/precache-manifest.fa8f3602f6de7e1e1590b8a88708d1fc.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("%20//sakiko-2.github.io/quote-react-redux/index.html", {
+workbox.routing.registerNavigationRoute("/quote-react-redux/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
