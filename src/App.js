@@ -5,6 +5,7 @@ import './App.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRedo, faSpinner, faQuoteLeft } from '@fortawesome/free-solid-svg-icons';
+import Footer from './components/Footer';
 
 library.add(faRedo, faSpinner, faQuoteLeft);
 
@@ -50,17 +51,20 @@ class App extends Component {
     return (
       <div className='App'>
         <div className='container'>
-          <header className='App-header'>
-            <h1>Quote Of The Day</h1>
-          </header>
-          <div className='d-flex flex-row justify-content-center'>
-            <div className='bg-white card'>
-              <div className='card-body'>
-                {this.renderQuote()}
+          <div className='content'>
+            <header className='App-header'>
+              <h1>Quote Of The Day</h1>
+            </header>
+            <div className='d-flex flex-row justify-content-center'>
+              <div className='bg-white card'>
+                <div className='card-body'>
+                  {this.renderQuote()}
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }
