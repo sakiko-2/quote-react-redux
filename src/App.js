@@ -64,7 +64,7 @@ class App extends Component {
     return (
       <div className='App'>
         <div className='container'>
-          <div className='content'>
+          <main className='content'>
             <Title title={'Quote Of The Day'}/>
             <div className='d-flex flex-row justify-content-center'>
               <div className='bg-white card'>
@@ -73,7 +73,7 @@ class App extends Component {
                 </div>
               </div>
             </div>
-          </div>
+          </main>
         </div>
         <Footer />
       </div>
