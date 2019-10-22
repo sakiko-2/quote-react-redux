@@ -6,6 +6,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRedo, faSpinner, faQuoteLeft } from '@fortawesome/free-solid-svg-icons';
 import Footer from './components/Footer';
+import Title from './components/Title';
 
 library.add(faRedo, faSpinner, faQuoteLeft);
 
@@ -20,10 +21,17 @@ class App extends Component {
   }
 
   renderQuote() {
-    if (this.props.loading || !this.props.data) {
+    const { data, loading } = this.props;
+
+    if (loading || !data) {
       return (
         <div className='m-3'>
-          <FontAwesomeIcon icon='spinner' pulse size='2x' color='lightgrey' />
+          <FontAwesomeIcon
+            icon='spinner'
+            pulse
+            size='2x'
+            color='lightgrey'
+          />
         </div>
       );
     }
@@ -31,8 +39,10 @@ class App extends Component {
     return (
       <div className='blockquote mx-4 my-3'>
         <div className='text-left'>
-          <div><FontAwesomeIcon icon='quote-left' /></div>
-          {this.props.data.quote}
+          <div>
+            <FontAwesomeIcon icon='quote-left' />
+          </div>
+          {data.quote}
         </div>
         <div className='d-flex justify-content-between mt-4'>
           <button
@@ -42,7 +52,9 @@ class App extends Component {
           >
             <FontAwesomeIcon icon='redo' />
           </button>
-          <div className='blockquote-footer mt-2 text-right'>{this.props.data.thoughtAuthor.name}</div>
+          <div className='blockquote-footer mt-2 text-right'>
+            {data.thoughtAuthor.name}
+          </div>
         </div>
       </div>
     );
@@ -53,9 +65,7 @@ class App extends Component {
       <div className='App'>
         <div className='container'>
           <div className='content'>
-            <header className='App-header'>
-              <h1>Quote Of The Day</h1>
-            </header>
+            <Title title={'Quote Of The Day'}/>
             <div className='d-flex flex-row justify-content-center'>
               <div className='bg-white card'>
                 <div className='card-body'>
