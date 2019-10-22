@@ -38,6 +38,7 @@ class App extends Component {
           <button
             className='btn btn-dark m-1 rounded-circle text-left'
             onClick={this.handleClickReload.bind(this)}
+            aria-label='Reload Button'
           >
             <FontAwesomeIcon icon='redo' />
           </button>
