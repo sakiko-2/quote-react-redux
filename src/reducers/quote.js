@@ -5,7 +5,7 @@ export function loading(state = true, action) {
     default:
       return state;
   }
-};
+}
 
 export function data(state = [], action) {
   switch (action.type) {
@@ -14,4 +14,4 @@ export function data(state = [], action) {
     default:
       return state;
   }
-};
+}

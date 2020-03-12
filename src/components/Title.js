@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import './Title.css';
 
 const Title = ({ title }) => (
-  <div className='App-header'>
+  <div className="App-header">
     <h1>{title}</h1>
   </div>
 );
